@@ -20,7 +20,11 @@ class StringCalculator {
     int sum = 0;
     for (var part in parts) {
       if (part.isNotEmpty) {
-        sum += int.parse(part);
+        final number = int.parse(part);
+        if (number < 0) {
+          throw FormatException('negative numbers are not allowed');
+        }
+        sum += number;
       }
     }
     return sum;
