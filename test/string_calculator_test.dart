@@ -16,8 +16,10 @@ void main() {
     expect(result, 1);
   });
 
-  test('Adding two numbers', () {
+  test('Adding multiple numbers', () {
     final result = calculator.add('1,2');
+    final result2 = calculator.add('3,4,5');
     expect(result, 3);
+    expect(result2, 12);
   });
 }
