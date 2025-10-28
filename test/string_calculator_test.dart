@@ -27,4 +27,11 @@ void main() {
     final result = calculator.add('1\n2,3');
     expect(result, 6);
   });
+
+  test('Adding numbers with custom delimiter', () {
+    final result = calculator.add('//;\n1;2');
+    final result2 = calculator.add('//[add]\n3add4');
+    expect(result, 3);
+    expect(result2, 7);
+  });
 }
