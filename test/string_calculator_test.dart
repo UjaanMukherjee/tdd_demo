@@ -37,8 +37,24 @@ void main() {
 
   test('test error handling for case with negative numbers', () {
     expect(
-        () => calculator.add('1,-2,3'),
-        throwsA(isA<FormatException>().having(
-            (e) => e.message, 'message', 'negative numbers are not allowed')));
+      () => calculator.add('1,-2,3'),
+      throwsA(
+        isA<FormatException>().having(
+          (e) => e.message,
+          'message',
+          'negative numbers are not allowed: -2',
+        ),
+      ),
+    );
+    expect(
+      () => calculator.add('1,-2,-3'),
+      throwsA(
+        isA<FormatException>().having(
+          (e) => e.message,
+          'message',
+          'negative numbers are not allowed: -2 -3',
+        ),
+      ),
+    );
   });
 }

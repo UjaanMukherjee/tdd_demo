@@ -17,15 +17,20 @@ class StringCalculator {
       formattedInput = parts.sublist(1).join('\n');
     }
     final parts = formattedInput.split(RegExp(delimiter));
+    final negativeNumbers = <int>[];
     int sum = 0;
     for (var part in parts) {
       if (part.isNotEmpty) {
         final number = int.parse(part);
         if (number < 0) {
-          throw FormatException('negative numbers are not allowed');
+          negativeNumbers.add(number);
         }
         sum += number;
       }
+    }
+    if (negativeNumbers.isNotEmpty) {
+      throw FormatException(
+          'negative numbers are not allowed: ${negativeNumbers.join(' ')}');
     }
     return sum;
   }
