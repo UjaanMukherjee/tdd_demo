@@ -15,4 +15,9 @@ void main() {
     final result = calculator.add('1');
     expect(result, 1);
   });
+
+  test('Adding two numbers', () {
+    final result = calculator.add('1,2');
+    expect(result, 3);
+  });
 }
