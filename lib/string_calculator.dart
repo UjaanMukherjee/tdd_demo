@@ -1,12 +1,12 @@
 class StringCalculator {
   int add(String numbers) {
-    if (numbers.isEmpty) {
-      return 0;
-    }
-    final parts = numbers.split(',');
+    final delimiter = RegExp(r'[,\n]+');
+    final parts = numbers.split(delimiter);
     int sum = 0;
     for (var part in parts) {
-      sum += int.parse(part);
+      if (part.isNotEmpty) {
+        sum += int.parse(part);
+      }
     }
     return sum;
   }

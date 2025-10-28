@@ -22,4 +22,9 @@ void main() {
     expect(result, 3);
     expect(result2, 12);
   });
+
+  test('Adding numbers with "\\n" delimiter', () {
+    final result = calculator.add('1\n2,3');
+    expect(result, 6);
+  });
 }
